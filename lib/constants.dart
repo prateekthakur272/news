@@ -5,12 +5,14 @@ import 'package:flutter/material.dart';
 const title = 'NEWS';
 
 // Space and Padding
+const space4 = SizedBox.square(dimension: 4,);
 const space8 = SizedBox.square(dimension: 8,);
 const space16 = SizedBox.square(dimension: 16,);
 const space24 = SizedBox.square(dimension: 24,);
 const space32 = SizedBox.square(dimension: 32,);
 const space40 = SizedBox.square(dimension: 40,);
 
+const paddingAll4 = EdgeInsets.all(4);
 const paddingAll8 = EdgeInsets.all(8);
 const paddingAll16 = EdgeInsets.all(16);
 const paddingAll24 = EdgeInsets.all(24);
@@ -27,7 +29,7 @@ const paddingV24 = EdgeInsets.symmetric(vertical:24);
 const paddingV32 = EdgeInsets.symmetric(vertical:32);
 
 // Colors Light
-const primaryColor = Color(0xffef6666);
+const primaryColor = Color.fromARGB(255, 236, 153, 109);
 const secondaryColor = Color.fromARGB(255, 222, 222, 222);
 const onPrimaryColor = Colors.white;
 const onSecondaryColor = Colors.black;

@@ -1,0 +1,1 @@
+GET https://www.google.com/search?client=safari&rls=en&q=GET+https%3A%2F%2Fnewsapi.org%2Fv2%2Feverything%3Fq%3DApple%26from%3D2023-12-22%26sortBy%3Dpopularity%26apiKey%3D5ca1b08a7d7f4dc8b37dee9355a9c752&ie=UTF-8&oe=UTF-8 HTTP/1.1
