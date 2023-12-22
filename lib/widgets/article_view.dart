@@ -23,7 +23,7 @@ class ArticleView extends StatelessWidget {
         child: Row(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            if(article.imageUrl!=null)
+            if(article.imageUrl!=null && article.imageUrl!.isNotEmpty)
             ClipRRect(
               borderRadius: BorderRadius.circular(16),
                 child: Image.network(

@@ -14,48 +14,37 @@ class _AllFeedsState extends State<AllFeeds> {
   var articles = getNews();
   @override
   Widget build(BuildContext context) {
-    return DefaultTabController(
-      initialIndex: 0,
-      length: 5,
-      child: Column(
-        children: [
-          const TabBar(isScrollable: true, tabs: [
-            Tab(
-              text: 'All',
-            ),
-            Tab(
-              text: 'Sports',
-            ),
-            Tab(
-              text: 'Entertainment',
-            ),
-            Tab(
-              text: 'Science',
-            ),
-            Tab(
-              text: 'Finance',
-            ),
-          ]),
-          Expanded(
-              child: Center(
-            child: FutureBuilder(
-                future: articles,
-                builder: ((context, snapshot) {
-                  if (snapshot.hasData) {
-                    final data = snapshot.data!;
-                    return Scrollbar(
-                      child: ListView.builder(
-                        itemCount: data.length,
-                        itemBuilder: (context, index) =>
-                            ArticleView(article: data[index]),
-                      ),
-                    );
-                  }
-                  return const CircularProgressIndicator();
-                })),
-          )),
-        ],
-      ),
+    return Column(
+      children: [
+        DefaultTabController(
+          length: categories.length,
+          child: TabBar(
+            isScrollable: true, 
+            onTap: (value){},
+            tabs: categories.map((e) => Tab(text: e??'All',)).toList(),
+          ),
+        ),
+        Expanded(
+            child: Center(
+          child: FutureBuilder(
+              future: articles,
+              builder: ((context, snapshot) {
+                if (snapshot.hasData) {
+                  final data = snapshot.data!;
+                  return Scrollbar(
+                    child: ListView.builder(
+                      itemCount: data.length,
+                      itemBuilder: (context, index) =>
+                          ArticleView(article: data[index]),
+                    ),
+                  );
+                }
+                return const CircularProgressIndicator();
+              })),
+        )),
+      ],
     );
   }
 }
+
+const categories = [null, 'business', 'entertainment', 'general', 'health', 'science', 'sports', 'technology',];

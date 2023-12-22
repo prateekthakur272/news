@@ -23,6 +23,9 @@ class _HomeScreenState extends State<HomeScreen> {
         children: const [AllFeeds()],
       ),
       bottomNavigationBar: BottomNavigationBar(
+        selectedItemColor: primaryColor,
+        showUnselectedLabels: true,
+        unselectedItemColor: secondaryColor,
         showSelectedLabels: true,
         currentIndex: pageIndex,
                 onTap: (index){
@@ -32,6 +35,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 },
                   items: const [
                     BottomNavigationBarItem(icon: Icon(FontAwesomeIcons.solidNewspaper,),label: 'Feed'),
+                    BottomNavigationBarItem(icon: Icon(FontAwesomeIcons.chartLine,),label: 'Stories'),
                     BottomNavigationBarItem(icon: Icon(FontAwesomeIcons.magnifyingGlass),label: 'Search'),
                     BottomNavigationBarItem(icon: Icon(FontAwesomeIcons.gear),label: 'Settings'),
                   ]

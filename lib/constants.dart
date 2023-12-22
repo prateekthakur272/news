@@ -30,7 +30,7 @@ const paddingV32 = EdgeInsets.symmetric(vertical:32);
 
 // Colors Light
 const primaryColor = Color.fromARGB(255, 236, 153, 109);
-const secondaryColor = Color.fromARGB(255, 222, 222, 222);
+const secondaryColor = Color.fromARGB(255, 150, 150, 150);
 const onPrimaryColor = Colors.white;
 const onSecondaryColor = Colors.black;
 const errorColor = Color.fromARGB(255, 220, 112, 112);
