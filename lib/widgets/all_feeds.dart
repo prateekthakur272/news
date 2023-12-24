@@ -10,7 +10,7 @@ class AllFeeds extends StatefulWidget {
 }
 
 class _AllFeedsState extends State<AllFeeds> {
-  var category = 'All';
+  late String? category;
   var articles = getNews();
   @override
   Widget build(BuildContext context) {
@@ -20,7 +20,12 @@ class _AllFeedsState extends State<AllFeeds> {
           length: categories.length,
           child: TabBar(
             isScrollable: true, 
-            onTap: (value){},
+            onTap: (index){
+              setState(() {
+                category = index==0?null:categories[index];
+                articles = getNews(category);
+              });
+            },
             tabs: categories.map((e) => Tab(text: e??'All',)).toList(),
           ),
         ),
@@ -38,6 +43,8 @@ class _AllFeedsState extends State<AllFeeds> {
                           ArticleView(article: data[index]),
                     ),
                   );
+                }else if(snapshot.hasError){
+                  return Text(snapshot.error.toString());
                 }
                 return const CircularProgressIndicator();
               })),

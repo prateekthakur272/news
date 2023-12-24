@@ -1,17 +1,17 @@
 import 'dart:io';
-
 import 'package:dio/dio.dart';
 import 'package:news/models/article.dart';
 
 final dio = Dio();
 const apiKey = '5ca1b08a7d7f4dc8b37dee9355a9c752';
-// const apiUrl =
-//     'https://newsapi.org/v2/everything?q=sports&apiKey=5ca1b08a7d7f4dc8b37dee9355a9c752';
 
-Future<List<Article>> getNews(
-    {String? query, String? category, String? country}) async {
-  final apiUrl =
-      'https://newsapi.org/v2/everything?q=$query&apiKey=5ca1b08a7d7f4dc8b37dee9355a9c752';
+String getUrl([String? query]){
+  return 'https://newsapi.org/v2/everything?q=$query&sortBy=popularity&apiKey=$apiKey';
+}
+
+Future<List<Article>> getNews([String? query]) async {
+  final apiUrl = getUrl(query);
+  print(apiUrl);
   final response = await dio.get(apiUrl);
   final statusCode = response.statusCode!;
   if (statusCode == 200) {
