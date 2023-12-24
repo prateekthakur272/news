@@ -14,11 +14,7 @@ class App extends StatelessWidget {
         useMaterial3: true,
           colorSchemeSeed: primaryColor,
           brightness: Brightness.light,
-          inputDecorationTheme: InputDecorationTheme(
-            border: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(16)
-            )
-          ),
+          
           appBarTheme: const AppBarTheme(
               surfaceTintColor: onPrimaryColor,
               titleTextStyle: TextStyle(

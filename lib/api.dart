@@ -11,7 +11,6 @@ String getUrl([String? query]){
 
 Future<List<Article>> getNews([String? query]) async {
   final apiUrl = getUrl(query);
-  print(apiUrl);
   final response = await dio.get(apiUrl);
   final statusCode = response.statusCode!;
   if (statusCode == 200) {

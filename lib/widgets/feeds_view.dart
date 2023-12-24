@@ -1,0 +1,29 @@
+import 'package:flutter/material.dart';
+import 'package:news/widgets/article_view.dart';
+import 'package:news/models/article.dart';
+
+class FeedsView extends StatelessWidget {
+  final Future<List<Article>> articles;
+  const FeedsView({super.key, required this.articles});
+
+  @override
+  Widget build(BuildContext context) {
+    return FutureBuilder(
+              future: articles,
+              builder: ((context, snapshot) {
+                if (snapshot.hasData) {
+                  final data = snapshot.data!;
+                  return Scrollbar(
+                    child: ListView.builder(
+                      itemCount: data.length,
+                      itemBuilder: (context, index) =>
+                          ArticleView(article: data[index]),
+                    ),
+                  );
+                }else if(snapshot.hasError){
+                  return const Text('Some error occurred', style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold),);
+                }
+                return const CircularProgressIndicator();
+              }));
+  }
+}
