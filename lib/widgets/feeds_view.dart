@@ -8,13 +8,16 @@ class FeedsView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final scrollController = ScrollController();
     return FutureBuilder(
               future: articles,
               builder: ((context, snapshot) {
                 if (snapshot.hasData) {
                   final data = snapshot.data!;
                   return Scrollbar(
+                    controller: scrollController,
                     child: ListView.builder(
+                      controller: scrollController,
                       itemCount: data.length,
                       itemBuilder: (context, index) =>
                           ArticleView(article: data[index]),

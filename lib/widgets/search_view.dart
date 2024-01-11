@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:news/api.dart';
 import 'package:news/constants.dart';
-import 'package:news/widgets/all_feeds.dart';
 import 'package:news/widgets/feeds_view.dart';
 
 class SearchArticleView extends StatefulWidget {
