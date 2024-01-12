@@ -3,6 +3,7 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:news/constants.dart';
 import 'package:news/widgets/all_feeds.dart';
 import 'package:news/widgets/search_view.dart';
+import 'package:news/widgets/stories_page.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -21,7 +22,7 @@ class _HomeScreenState extends State<HomeScreen> {
         ),
       body: IndexedStack(
         index: pageIndex,
-        children: [const AllFeeds(),Container(color: primaryColor,),const SearchArticleView()],
+        children: const [AllFeeds(),StoriesPage(),SearchArticleView()],
       ),
       bottomNavigationBar: BottomNavigationBar(
         selectedItemColor: primaryColor,
