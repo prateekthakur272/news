@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:news/constants.dart';
+import 'package:news/screens/settings_screen.dart';
 import 'package:news/widgets/all_feeds.dart';
 import 'package:news/widgets/search_view.dart';
 import 'package:news/widgets/stories_page.dart';
@@ -19,6 +20,11 @@ class _HomeScreenState extends State<HomeScreen> {
     return Scaffold(
       appBar: AppBar(
         title: const Text(title),
+        actions: [
+          IconButton(onPressed: (){
+            Navigator.push(context, MaterialPageRoute(builder: (context)=> const SettingsScreen()));
+          }, icon: const Icon(FontAwesomeIcons.gear))
+        ],
         ),
       body: IndexedStack(
         index: pageIndex,
