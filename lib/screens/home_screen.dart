@@ -39,7 +39,6 @@ class _HomeScreenState extends State<HomeScreen> {
                     BottomNavigationBarItem(icon: Icon(FontAwesomeIcons.solidNewspaper,),label: 'Feed'),
                     BottomNavigationBarItem(icon: Icon(FontAwesomeIcons.chartLine,),label: 'Stories'),
                     BottomNavigationBarItem(icon: Icon(FontAwesomeIcons.magnifyingGlass),label: 'Search'),
-                    BottomNavigationBarItem(icon: Icon(FontAwesomeIcons.gear),label: 'Settings'),
                   ]
               ),
     );
