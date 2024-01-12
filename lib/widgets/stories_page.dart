@@ -14,7 +14,7 @@ class _StoriesPageState extends State<StoriesPage> {
   Widget build(BuildContext context) {
     return Center(
       child: FutureBuilder(
-          future: getNews(),
+          future: getTopHeadlines(),
           builder: (context, snapshot) {
             if (snapshot.hasData) {
               final stories = snapshot.data!;
@@ -24,7 +24,7 @@ class _StoriesPageState extends State<StoriesPage> {
                   itemBuilder: (context, index) =>
                       StoryView(story: stories[index]));
             }
-            return CircularProgressIndicator();
+            return const CircularProgressIndicator();
           }),
     );
   }

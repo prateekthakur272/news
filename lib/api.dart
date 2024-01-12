@@ -32,3 +32,29 @@ Future<List<Article>> getNews([String? query]) async {
   }
   throw const HttpException('Some error occured');
 }
+
+Future<List<Article>> getTopHeadlines() async {
+  const apiUrl = 'https://newsapi.org/v2/top-headlines?country=in&apiKey=$apiKey';
+  final response = await dio.get(apiUrl);
+  final statusCode = response.statusCode!;
+  if (statusCode == 200) {
+    var articles = response.data['articles'];
+    articles = response.data['articles']
+        .map<Article>((article) => Article(
+            title: article['title'],
+            description: article['description'],
+            source: article['source']['name'].toString(),
+            author: article['author'],
+            content: article['content'],
+            articleUrl: article['url'],
+            imageUrl: article['urlToImage'],
+            dateTime: DateTime.now()))
+        .toList();
+    return articles;
+  } else if (statusCode == 400) {
+    throw const HttpException('Bad request');
+  }
+  throw const HttpException('Some error occured');
+}
+
+
