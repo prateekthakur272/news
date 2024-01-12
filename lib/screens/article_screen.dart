@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:news/constants.dart';
 import 'package:news/models/article.dart';
+import 'package:news/screens/article_web_view.dart';
 import 'package:share_plus/share_plus.dart';
 
 class ArticleScreen extends StatelessWidget {
@@ -43,8 +44,11 @@ class ArticleScreen extends StatelessWidget {
               style: const TextStyle(fontSize: 16),
             ),
             space8,
+            if(article.articleUrl!=null)
             FilledButton(
-                onPressed: () {}, child: const Text('Read full article')),
+                onPressed: () {
+                  Navigator.push(context, MaterialPageRoute(builder: (context)=> ArticleWebView(articleUrl: article.articleUrl!,)));
+                }, child: const Text('Read full article')),
           ],
         ));
   }
