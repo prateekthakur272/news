@@ -1,5 +1,3 @@
-import 'dart:js';
-
 import 'package:flutter/material.dart';
 import 'package:news/src/shared/strings.dart';
 import 'package:triton_extensions/triton_extensions.dart';
