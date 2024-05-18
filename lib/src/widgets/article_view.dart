@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:news/constants.dart';
-import 'package:news/models/article.dart';
-import 'package:news/screens/article_screen.dart';
+import 'package:news/src/models/article.dart';
+import 'package:news/src/screens/article_screen.dart';
+import 'package:triton_extensions/triton_extensions.dart';
 
 class ArticleView extends StatelessWidget {
   final Article article;
@@ -22,9 +22,9 @@ class ArticleView extends StatelessWidget {
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(16),
         ),
-        surfaceTintColor: surfaceColor,
+        surfaceTintColor: context.colorScheme.surface,
         child: Padding(
-          padding: paddingAll24,
+          padding: 24.padding,
           child: Row(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
@@ -37,7 +37,7 @@ class ArticleView extends StatelessWidget {
                 height: 200,
                 fit: BoxFit.cover,
               )),
-              space16,
+              16.space,
               Expanded(
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,

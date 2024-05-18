@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:news/api.dart';
-import 'package:news/widgets/story_view.dart';
+import 'package:news/src/widgets/story_view.dart';
 
 class StoriesPage extends StatefulWidget {
   const StoriesPage({super.key});

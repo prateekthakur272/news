@@ -1,10 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:news/constants.dart';
-import 'package:news/screens/settings_screen.dart';
-import 'package:news/widgets/all_feeds.dart';
-import 'package:news/widgets/search_view.dart';
-import 'package:news/widgets/stories_page.dart';
+import 'package:news/src/screens/settings_screen.dart';
+import 'package:news/src/widgets/search_view.dart';
+import 'package:triton_extensions/triton_extensions.dart';
+
+import '../shared/strings.dart';
+import '../widgets/all_feeds.dart';
+import '../widgets/stories_page.dart';
+
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -31,9 +34,9 @@ class _HomeScreenState extends State<HomeScreen> {
         children: const [AllFeeds(),StoriesPage(),SearchArticleView()],
       ),
       bottomNavigationBar: BottomNavigationBar(
-        selectedItemColor: primaryColor,
+        selectedItemColor: context.colorScheme.primary,
         showUnselectedLabels: true,
-        unselectedItemColor: secondaryColor,
+        unselectedItemColor: context.colorScheme.secondary,
         showSelectedLabels: true,
         currentIndex: pageIndex,
                 onTap: (index){

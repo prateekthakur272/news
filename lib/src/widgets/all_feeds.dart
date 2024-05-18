@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:news/api.dart';
-import 'package:news/widgets/feeds_view.dart';
+import 'feeds_view.dart';
 
 class AllFeeds extends StatefulWidget {
   const AllFeeds({super.key});

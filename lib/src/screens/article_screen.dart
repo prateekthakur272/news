@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:news/constants.dart';
-import 'package:news/models/article.dart';
-import 'package:news/screens/article_web_view.dart';
+import 'package:news/src/models/article.dart';
 import 'package:share_plus/share_plus.dart';
+import 'package:triton_extensions/triton_extensions.dart';
+import 'article_web_view.dart';
 
 class ArticleScreen extends StatelessWidget {
   final Article article;
@@ -22,7 +22,7 @@ class ArticleScreen extends StatelessWidget {
           ],
         ),
         body: ListView(
-          padding: paddingAll16,
+          padding: 16.padding,
           children: [
             if (article.imageUrl != null)
               ClipRRect(
@@ -32,18 +32,18 @@ class ArticleScreen extends StatelessWidget {
                   fit: BoxFit.contain,
                 ),
               ),
-            space16,
+            16.space,
             Text(
               article.title ?? '',
               style: const TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
             ),
             Text(article.content ?? ''),
-            space8,
+            8.space,
             Text(
               'By ${article.author!}',
               style: const TextStyle(fontSize: 16),
             ),
-            space8,
+            8.space,
             if(article.articleUrl!=null)
             FilledButton(
                 onPressed: () {

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:news/constants.dart';
-import 'package:news/models/article.dart';
+import 'package:news/src/models/article.dart';
+import 'package:triton_extensions/triton_extensions.dart';
 
 class StoryView extends StatelessWidget {
   final Article story;
@@ -15,7 +15,7 @@ class StoryView extends StatelessWidget {
       children: [
         Image(image: NetworkImage(story.imageUrl!),fit: BoxFit.cover,),
         Padding(
-          padding: paddingAll8,
+          padding: 8.padding,
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [

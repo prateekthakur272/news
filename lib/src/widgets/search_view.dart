@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:news/api.dart';
-import 'package:news/constants.dart';
-import 'package:news/widgets/feeds_view.dart';
+import 'package:triton_extensions/triton_extensions.dart';
+import 'feeds_view.dart';
 
 class SearchArticleView extends StatefulWidget {
   const SearchArticleView({super.key});
@@ -18,7 +18,7 @@ class _SearchArticleViewState extends State<SearchArticleView> {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: paddingH16,
+      padding: 16.paddingHorizontal,
       child: Column(
         children: [
           TextField(
@@ -43,7 +43,7 @@ class _SearchArticleViewState extends State<SearchArticleView> {
                         icon: const Icon(FontAwesomeIcons.xmark))
                     : null),
           ),
-          space4,
+          4.space,
           if(_searchController.text.isNotEmpty)
           Expanded(child: Center(child: FeedsView(articles: _articles))),
         ],

@@ -1,5 +1,8 @@
+import 'dart:js';
+
 import 'package:flutter/material.dart';
-import 'package:news/constants.dart';
+import 'package:news/src/shared/strings.dart';
+import 'package:triton_extensions/triton_extensions.dart';
 
 class IntroScreen extends StatefulWidget {
   const IntroScreen({super.key});
@@ -12,16 +15,16 @@ class _IntroScreenState extends State<IntroScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: primaryColor,
+      backgroundColor: context.colorScheme.primary,
       body: Padding(
-        padding: paddingAll24,
+        padding: 24.padding,
         child: Center(
           child: Column(
             mainAxisSize: MainAxisSize.min,
             children: [
               Image.asset('assets/logo.png',height: 180,),
-              const Text('News, Articles and more, all at one place,\non your fingertips',style: TextStyle(color: onPrimaryColor, fontSize: 18,),textAlign: TextAlign.center,),
-              space16,
+              Text(intro ,style: TextStyle(color: context.colorScheme.onPrimary, fontSize: 18,),textAlign: TextAlign.center,),
+              16.space,
             ],
           ),
         ),

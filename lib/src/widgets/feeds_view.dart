@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:news/widgets/article_view.dart';
-import 'package:news/models/article.dart';
+import 'package:news/src/models/article.dart';
+import 'article_view.dart';
 
 class FeedsView extends StatelessWidget {
   final Future<List<Article>> articles;
