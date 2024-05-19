@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:news/src/providers/authentication_provider.dart';
 import 'package:news/src/providers/theme_provider.dart';
 import 'package:provider/provider.dart';
 import 'package:url_launcher/url_launcher.dart';
@@ -21,6 +22,16 @@ class SettingsScreen extends StatelessWidget {
             },
             title: const Text('Dark Mode'),
             subtitle: const Text('Enable dark mode'),
+          ),
+          ListTile(
+            title: Text('LogOut', style: TextStyle(
+              fontWeight: FontWeight.bold,
+              color: Colors.red.shade500
+            ),),
+            // leading: const Icon(FontAwesomeIcons.link),
+            onTap: () {
+              Provider.of<AuthenticationProvider>(context,listen: false).signOut();
+            },
           ),
           const Divider(),
           ListTile(

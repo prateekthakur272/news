@@ -8,13 +8,17 @@ class SignInWithButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      padding: 12.padding,
-      decoration: BoxDecoration(
-        border: Border.all(color: context.colorScheme.onSurface),
-        borderRadius: BorderRadius.circular(16)
+    return InkWell(
+      onTap: onPressed,
+      splashColor: context.colorScheme.primary,
+      child: Container(
+        padding: 12.padding,
+        decoration: BoxDecoration(
+          border: Border.all(color: context.colorScheme.onSurface),
+          borderRadius: BorderRadius.circular(16)
+        ),
+        child: icon,
       ),
-      child: icon,
     );
   }
 }

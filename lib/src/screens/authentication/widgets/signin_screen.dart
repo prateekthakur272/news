@@ -1,21 +1,31 @@
 import 'dart:ui';
-
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:news/src/providers/authentication_provider.dart';
 import 'package:news/src/screens/authentication/widgets/password_field.dart';
 import 'package:news/src/screens/authentication/widgets/sign_in_with_button.dart';
+import 'package:news/src/screens/authentication/widgets/signup_screen.dart';
 import 'package:news/src/shared/strings.dart';
+import 'package:news/src/shared/ui.dart';
+import 'package:provider/provider.dart';
 import 'package:triton_extensions/triton_extensions.dart';
 
-class SignInScreen extends StatelessWidget {
+class SignInScreen extends StatefulWidget {
   const SignInScreen({super.key});
 
   @override
-  Widget build(BuildContext context) {
-    final formKey = GlobalKey<FormState>();
-    final emailController = TextEditingController();
-    final passwordController = TextEditingController();
+  State<SignInScreen> createState() => _SignInScreenState();
+}
 
+class _SignInScreenState extends State<SignInScreen> {
+
+  final formKey = GlobalKey<FormState>();
+  final emailController = TextEditingController();
+  final passwordController = TextEditingController();
+
+  @override
+  Widget build(BuildContext context) {
+    final authProvider = Provider.of<AuthenticationProvider>(context);
     return Scaffold(
       body: Stack(
         children: [
@@ -76,12 +86,13 @@ class SignInScreen extends StatelessWidget {
                         child: Column(
                           children: [
                             TextFormField(
-                              validator: (val){
-                                if(val!.isEmpty){
+                              validator: (val) {
+                                if (val!.isEmpty) {
                                   return emailValidationText;
                                 }
                                 return null;
                               },
+                              keyboardType: TextInputType.emailAddress,
                               controller: emailController,
                               decoration: const InputDecoration(
                                   prefixIcon: Icon(Icons.email),
@@ -91,8 +102,8 @@ class SignInScreen extends StatelessWidget {
                             PasswordInputField(
                               hintText: passwordFieldHintText,
                               controller: passwordController,
-                              validator: (val){
-                                if(val!.isEmpty){
+                              validator: (val) {
+                                if (val!.isEmpty) {
                                   return passwordValidationText;
                                 }
                                 return null;
@@ -112,8 +123,13 @@ class SignInScreen extends StatelessWidget {
                                 16.space,
                                 IconButton(
                                   onPressed: () {
-                                    if(formKey.currentState!.validate()){
-
+                                    if (formKey.currentState!.validate()) {
+                                      authProvider
+                                          .signIn(emailController.text.trim(),
+                                              passwordController.text.trim())
+                                          .catchError((err) {
+                                        showSnackBarMessage(context, err.toString());
+                                      });
                                     }
                                   },
                                   icon: const Icon(Icons.arrow_forward),
@@ -129,7 +145,8 @@ class SignInScreen extends StatelessWidget {
                         )),
                     Center(
                         child: TextButton(
-                            onPressed: () {},
+                            onPressed: () {
+                            },
                             child: const Text(forgotPasswordButtonText))),
                     16.space,
                     Row(
@@ -153,7 +170,9 @@ class SignInScreen extends StatelessWidget {
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         SignInWithButton(
-                            onPressed: () {},
+                            onPressed: () {
+                              authProvider.signInWithGoogle();
+                            },
                             icon: const Icon(
                               FontAwesomeIcons.google,
                               size: 32,
@@ -169,7 +188,9 @@ class SignInScreen extends StatelessWidget {
                     ),
                     Center(
                       child: TextButton(
-                        onPressed: () {},
+                        onPressed: () {
+                          Navigator.push(context, MaterialPageRoute(builder: (context)=> const SignUpScreen()));
+                        },
                         child: const Text(createAccountButtonText),
                       ),
                     ),
