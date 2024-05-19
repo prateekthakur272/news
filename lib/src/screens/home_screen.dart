@@ -33,23 +33,24 @@ class _HomeScreenState extends State<HomeScreen> {
         index: pageIndex,
         children: const [AllFeeds(),StoriesPage(),SearchArticleView()],
       ),
-      bottomNavigationBar: BottomNavigationBar(
-        selectedItemColor: context.colorScheme.primary,
-        showUnselectedLabels: true,
-        unselectedItemColor: context.colorScheme.secondary,
-        showSelectedLabels: true,
-        currentIndex: pageIndex,
-                onTap: (index){
-                  setState(() {
-                    pageIndex = index;
-                  });
-                },
-                  items: const [
-                    BottomNavigationBarItem(icon: Icon(FontAwesomeIcons.solidNewspaper,),label: 'Feed'),
-                    BottomNavigationBarItem(icon: Icon(FontAwesomeIcons.chartLine,),label: 'Stories'),
-                    BottomNavigationBarItem(icon: Icon(FontAwesomeIcons.magnifyingGlass),label: 'Search'),
-                  ]
-              ),
+      bottomNavigationBar: NavigationBarTheme(
+        data: NavigationBarThemeData(
+          indicatorColor: context.colorScheme.secondary.withOpacity(0.3)
+        ),
+        child: NavigationBar(
+          onDestinationSelected: (index){
+            setState(() {
+              pageIndex = index;
+            });
+          },
+          selectedIndex: pageIndex,
+          destinations: [
+            NavigationDestination(icon: const Icon(FontAwesomeIcons.newspaper), selectedIcon: Icon(FontAwesomeIcons.solidNewspaper, color: context.colorScheme.primary,), label: 'Feed'),
+            NavigationDestination(icon: const Icon(FontAwesomeIcons.chartLine), selectedIcon: Icon(FontAwesomeIcons.chartLine, color: context.colorScheme.primary,), label: 'Stories'),
+            NavigationDestination(icon: const Icon(FontAwesomeIcons.magnifyingGlass), selectedIcon: Icon(FontAwesomeIcons.magnifyingGlass, color: context.colorScheme.primary,), label: 'Search'),
+          ],
+        ),
+      ),
     );
   }
 }
