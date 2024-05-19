@@ -5,7 +5,6 @@ import 'package:news/src/providers/authentication_provider.dart';
 import 'package:news/src/screens/authentication/widgets/signin_screen.dart';
 import 'package:news/src/screens/home_screen.dart';
 import 'package:provider/provider.dart';
-import 'package:triton_extensions/triton_extensions.dart';
 
 class AuthenticationScreen extends StatelessWidget {
   const AuthenticationScreen({super.key});

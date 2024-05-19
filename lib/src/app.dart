@@ -3,7 +3,6 @@ import 'package:news/src/navigation/router.dart';
 import 'package:news/src/providers/authentication_provider.dart';
 import 'package:news/src/providers/theme_provider.dart';
 import 'package:news/src/repositories/authentication_repository.dart';
-import 'package:news/src/screens/authentication/authentication_screen.dart';
 import 'package:news/src/shared/strings.dart';
 import 'package:provider/provider.dart';
 

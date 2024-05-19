@@ -40,12 +40,12 @@ class AuthenticationRepository{
     }
   }
 }
-
-_logAndRethrow(Function function){
-  try{
-    return function();
-  }catch(e){
-    log(e.toString());
-    rethrow;
-  }
-}
+//
+// _logAndRethrow(Function function){
+//   try{
+//     return function();
+//   }catch(e){
+//     log(e.toString());
+//     rethrow;
+//   }
+// }

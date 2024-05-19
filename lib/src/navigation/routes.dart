@@ -1,6 +1,5 @@
 enum Routes{
   home('home'),
-  signIn('sign-in'),
   signUp('sign-up');
 
 
