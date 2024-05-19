@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:news/src/providers/theme_provider.dart';
+import 'package:news/src/screens/authentication/authentication_screen.dart';
+import 'package:news/src/screens/authentication/widgets/signin_screen.dart';
 import 'package:news/src/screens/home_screen.dart';
 import 'package:news/src/shared/strings.dart';
 import 'package:provider/provider.dart';
@@ -17,7 +19,7 @@ class App extends StatelessWidget {
         builder: (context) {
           return MaterialApp(
             title: title,
-            home: const HomeScreen(),
+            home: const SignInScreen(),
             theme: Provider.of<ThemeProvider>(context).theme
           );
         }
