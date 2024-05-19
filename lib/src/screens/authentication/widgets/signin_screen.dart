@@ -1,10 +1,11 @@
 import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:go_router/go_router.dart';
+import 'package:news/src/navigation/routes.dart';
 import 'package:news/src/providers/authentication_provider.dart';
 import 'package:news/src/screens/authentication/widgets/password_field.dart';
 import 'package:news/src/screens/authentication/widgets/sign_in_with_button.dart';
-import 'package:news/src/screens/authentication/widgets/signup_screen.dart';
 import 'package:news/src/shared/strings.dart';
 import 'package:news/src/shared/ui.dart';
 import 'package:provider/provider.dart';
@@ -189,7 +190,7 @@ class _SignInScreenState extends State<SignInScreen> {
                     Center(
                       child: TextButton(
                         onPressed: () {
-                          Navigator.push(context, MaterialPageRoute(builder: (context)=> const SignUpScreen()));
+                          context.pushNamed(Routes.signUp.name);
                         },
                         child: const Text(createAccountButtonText),
                       ),

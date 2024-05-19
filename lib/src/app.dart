@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:news/src/navigation/router.dart';
 import 'package:news/src/providers/authentication_provider.dart';
 import 'package:news/src/providers/theme_provider.dart';
 import 'package:news/src/repositories/authentication_repository.dart';
@@ -18,9 +19,10 @@ class App extends StatelessWidget {
       ],
       child: Builder(
         builder: (context) {
-          return MaterialApp(
+          final router = AppRouter();
+          return MaterialApp.router(
             title: title,
-            home: const AuthenticationScreen(),
+            routerConfig: router.router,
             theme: Provider.of<ThemeProvider>(context).theme
           );
         }

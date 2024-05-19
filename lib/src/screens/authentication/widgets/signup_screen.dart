@@ -1,6 +1,7 @@
 import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:go_router/go_router.dart';
 import 'package:news/src/providers/authentication_provider.dart';
 import 'package:news/src/screens/authentication/widgets/password_field.dart';
 import 'package:news/src/shared/strings.dart';
@@ -63,7 +64,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       IconButton(onPressed: (){
-                        Navigator.pop(context);
+                        context.pop();
                       }, icon: const Icon(Icons.close), style: IconButton.styleFrom(
                         backgroundColor: context.colorScheme.primary,
                         iconSize: 32
@@ -168,7 +169,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                       Center(
                         child: TextButton(
                           onPressed: () {
-                            Navigator.pop(context);
+                            context.pop();
                           },
                           child: const Text(alreadyHaveAnAccount),
                         ),
