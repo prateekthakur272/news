@@ -42,6 +42,7 @@ dependencies:
   url_launcher: ^6.2.3
   triton_extensions:
     git: https://github.com/prateekthakur272/triton_extensions
+  provider: ^6.1.2
 
 dev_dependencies:
   flutter_test:
