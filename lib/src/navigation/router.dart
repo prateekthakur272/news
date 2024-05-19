@@ -4,7 +4,6 @@ import 'package:news/src/navigation/routes.dart';
 import 'package:news/src/screens/authentication/authentication_screen.dart';
 import 'package:news/src/screens/authentication/widgets/signup_screen.dart';
 import 'package:provider/provider.dart';
-
 import '../providers/authentication_provider.dart';
 
 class AppRouter {
@@ -14,13 +13,13 @@ class AppRouter {
         GoRoute(
             path: '/',
             name: Routes.home.name,
-            pageBuilder: (context, state) =>
-                const MaterialPage(child: AuthenticationScreen())),
+            pageBuilder: (context, state) => const MaterialPage(
+                child: AuthenticationScreen())),
         GoRoute(
             path: '/sign-up',
             name: Routes.signUp.name,
             pageBuilder: (context, state) =>
-            const MaterialPage(child: SignUpScreen()))
+                const MaterialPage(child: SignUpScreen()))
       ],
       redirect: (context, state) {
         final provider =
