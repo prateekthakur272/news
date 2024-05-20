@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:flutter/foundation.dart';
 import 'package:news/src/models/article.dart';
 import 'package:news/src/repositories/news_repository.dart';
@@ -7,9 +9,9 @@ class NewsProvider extends ChangeNotifier{
   final NewsRepository _newsRepository;
   NewsProvider(NewsRepository newsRepository):_newsRepository = newsRepository;
 
-  List<Article>? _news = [];
-  List<Article>? _stories = [];
-  List<Article>? _searchFeed = [];
+  List<Article>? _news;
+  List<Article>? _stories;
+  List<Article>? _searchFeed;
 
   List<Article>? get news => _news;
   List<Article>? get stories => _stories;
@@ -31,11 +33,28 @@ class NewsProvider extends ChangeNotifier{
   }
 
   void fetchNews([String? query]) async {
+    _news = null;
+    notifyListeners();
     if(query==null){
       _news = await _newsRepository.getNews();
+      log(_news.toString(), name: 'NEWS PROVIDER');
       notifyListeners();
     }else{
+      _news = await _newsRepository.getNews(query);
+      log(_searchFeed.toString(), name: 'NEWS PROVIDER');
+      notifyListeners();
+    }
+  }
+
+  void searchNews([String? query]) async {
+    if(query==null){
+      _searchFeed = [];
+      notifyListeners();
+    }else{
+      _searchFeed = null;
+      notifyListeners();
       _searchFeed = await _newsRepository.getNews(query);
+      log(_searchFeed.toString(), name: 'NEWS PROVIDER');
       notifyListeners();
     }
   }
