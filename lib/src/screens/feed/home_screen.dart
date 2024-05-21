@@ -5,7 +5,6 @@ import 'package:news/src/navigation/navigation.dart';
 import 'package:news/src/screens/feed/widgets/all_feeds.dart';
 import 'package:news/src/screens/feed/widgets/search_view.dart';
 import 'package:news/src/screens/feed/widgets/stories_page.dart';
-import 'package:news/src/screens/settings/settings_screen.dart';
 import 'package:news/src/shared/strings.dart';
 import 'package:triton_extensions/triton_extensions.dart';
 

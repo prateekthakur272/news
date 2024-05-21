@@ -53,5 +53,24 @@ final themeDark = ThemeData(
     titleTextStyle: TextStyle(
         color: onSurfaceColor, fontWeight: FontWeight.bold, fontSize: 18),
   ),
+    inputDecorationTheme: InputDecorationTheme(
+      hintStyle: const TextStyle(
+        color: onSurfaceColorDark
+      ),
+        border: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(16)
+        )
+    ),
+    dividerTheme: DividerThemeData(
+        thickness: 1,
+        color: Colors.grey.shade600
+    ),
+    filledButtonTheme: FilledButtonThemeData(
+        style: FilledButton.styleFrom(
+            minimumSize: const Size.fromHeight(56),
+            shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(16)
+            )
+        )
+    )
 );
-

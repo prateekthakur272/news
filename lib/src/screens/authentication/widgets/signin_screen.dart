@@ -65,8 +65,9 @@ class _SignInScreenState extends State<SignInScreen> {
                   mainAxisSize: MainAxisSize.min,
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    const Icon(
+                    Icon(
                       FontAwesomeIcons.newspaper,
+                      color: context.colorScheme.onSurface,
                       size: 72,
                     ),
                     16.space,
@@ -174,15 +175,17 @@ class _SignInScreenState extends State<SignInScreen> {
                             onPressed: () {
                               authProvider.signInWithGoogle();
                             },
-                            icon: const Icon(
+                            icon: Icon(
                               FontAwesomeIcons.google,
+                              color: context.colorScheme.onSurface,
                               size: 32,
                             )),
                         16.space,
                         SignInWithButton(
                             onPressed: () {},
-                            icon: const Icon(
+                            icon: Icon(
                               FontAwesomeIcons.github,
+                              color: context.colorScheme.onSurface,
                               size: 32,
                             ))
                       ],
