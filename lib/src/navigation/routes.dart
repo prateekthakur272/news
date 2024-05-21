@@ -1,6 +1,8 @@
 enum Routes{
   home('home'),
-  signUp('sign-up');
+  settings('settings'),
+  signUp('sign-up'),
+  article('article');
 
 
   final String name;

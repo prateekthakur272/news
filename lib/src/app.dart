@@ -11,6 +11,7 @@ class App extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final router = AppRouter();
     return MultiProvider(
       providers: [
         ChangeNotifierProvider(create: (context) => ThemeProvider()),
@@ -18,10 +19,11 @@ class App extends StatelessWidget {
       ],
       child: Builder(
         builder: (context) {
-          final router = AppRouter();
           return MaterialApp.router(
             title: title,
-            routerConfig: router.router,
+            routerDelegate: router.router.routerDelegate,
+            routeInformationParser: router.router.routeInformationParser,
+            routeInformationProvider: router.router.routeInformationProvider,
             theme: Provider.of<ThemeProvider>(context).theme
           );
         }

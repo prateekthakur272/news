@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:go_router/go_router.dart';
+import 'package:news/src/navigation/navigation.dart';
 import 'package:news/src/providers/authentication_provider.dart';
 import 'package:news/src/providers/theme_provider.dart';
 import 'package:provider/provider.dart';
@@ -31,6 +33,7 @@ class SettingsScreen extends StatelessWidget {
             // leading: const Icon(FontAwesomeIcons.link),
             onTap: () {
               Provider.of<AuthenticationProvider>(context,listen: false).signOut();
+              context.goNamed(Routes.home.name);
             },
           ),
           const Divider(),

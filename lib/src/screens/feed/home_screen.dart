@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:go_router/go_router.dart';
+import 'package:news/src/navigation/navigation.dart';
 import 'package:news/src/screens/feed/widgets/all_feeds.dart';
 import 'package:news/src/screens/feed/widgets/search_view.dart';
 import 'package:news/src/screens/feed/widgets/stories_page.dart';
@@ -25,10 +27,7 @@ class _HomeScreenState extends State<HomeScreen> {
         actions: [
           IconButton(
               onPressed: () {
-                Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                        builder: (context) => const SettingsScreen()));
+                context.pushNamed(Routes.settings.name);
               },
               icon: const Icon(FontAwesomeIcons.gear))
         ],

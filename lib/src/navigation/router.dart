@@ -1,8 +1,8 @@
-import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:news/src/navigation/routes.dart';
 import 'package:news/src/screens/authentication/authentication_screen.dart';
 import 'package:news/src/screens/authentication/widgets/signup_screen.dart';
+import 'package:news/src/screens/settings/settings_screen.dart';
 import 'package:provider/provider.dart';
 import '../providers/authentication_provider.dart';
 
@@ -13,13 +13,15 @@ class AppRouter {
         GoRoute(
             path: '/',
             name: Routes.home.name,
-            pageBuilder: (context, state) => const MaterialPage(
-                child: AuthenticationScreen())),
+            builder: (context, state) => const AuthenticationScreen()),
         GoRoute(
             path: '/sign-up',
             name: Routes.signUp.name,
-            pageBuilder: (context, state) =>
-                const MaterialPage(child: SignUpScreen()))
+            builder: (context, state) => const SignUpScreen()),
+        GoRoute(
+            path: '/settings',
+            name: Routes.settings.name,
+            builder: (context, state) => const SettingsScreen()),
       ],
       redirect: (context, state) {
         final provider =
