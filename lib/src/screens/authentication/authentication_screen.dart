@@ -5,7 +5,7 @@ import 'package:news/src/providers/authentication_provider.dart';
 import 'package:news/src/providers/news_provider.dart';
 import 'package:news/src/repositories/news_repository.dart';
 import 'package:news/src/screens/authentication/widgets/signin_screen.dart';
-import 'package:news/src/screens/home_screen.dart';
+import 'package:news/src/screens/feed/home_screen.dart';
 import 'package:provider/provider.dart';
 
 class AuthenticationScreen extends StatelessWidget {

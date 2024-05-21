@@ -13,6 +13,7 @@ class StoryView extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.center,
       mainAxisSize: MainAxisSize.min,
       children: [
+        if(story.imageUrl!=null)
         Image(image: NetworkImage(story.imageUrl!),fit: BoxFit.cover,),
         Padding(
           padding: 8.padding,
@@ -20,7 +21,7 @@ class StoryView extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(story.title!, style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 24),),
-              Text(story.description!,)
+              Text(story.description??'',)
             ],
           ),
         ),

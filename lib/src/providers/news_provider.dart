@@ -47,16 +47,15 @@ class NewsProvider extends ChangeNotifier{
   }
 
   void searchNews([String? query]) async {
-    if(query==null){
+    if(query==null || query.isEmpty){
       _searchFeed = [];
-      notifyListeners();
     }else{
       _searchFeed = null;
       notifyListeners();
       _searchFeed = await _newsRepository.getNews(query);
-      log(_searchFeed.toString(), name: 'NEWS PROVIDER');
-      notifyListeners();
     }
+    log(_searchFeed.toString(), name: 'NEWS PROVIDER');
+    notifyListeners();
   }
 
   void fetchStories() async {

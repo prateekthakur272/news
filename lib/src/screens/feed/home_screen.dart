@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:news/src/screens/settings_screen.dart';
-import 'package:news/src/widgets/search_view.dart';
+import 'package:news/src/screens/feed/widgets/all_feeds.dart';
+import 'package:news/src/screens/feed/widgets/search_view.dart';
+import 'package:news/src/screens/feed/widgets/stories_page.dart';
+import 'package:news/src/screens/settings/settings_screen.dart';
+import 'package:news/src/shared/strings.dart';
 import 'package:triton_extensions/triton_extensions.dart';
 
-import '../shared/strings.dart';
-import '../widgets/all_feeds.dart';
-import '../widgets/stories_page.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});

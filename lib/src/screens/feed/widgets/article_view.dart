@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:news/src/models/article.dart';
-import 'package:news/src/screens/article_screen.dart';
+import 'package:news/src/screens/article/article_screen.dart';
 import 'package:triton_extensions/triton_extensions.dart';
 
 class ArticleView extends StatelessWidget {

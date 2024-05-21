@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:news/src/providers/news_provider.dart';
-import 'package:news/src/widgets/article_view.dart';
 import 'package:provider/provider.dart';
+
+import 'article_view.dart';
 
 class AllFeeds extends StatefulWidget {
   const AllFeeds({super.key});
